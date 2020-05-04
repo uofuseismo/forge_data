@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FORGE Data Distribution | geothermal seismic monitoring data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="FAQ's about the FORGE data portal.">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/ee5e778e09.js" crossorigin="anonymous"></script>
+    <script src="js/slicknav.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#nav_menu').slicknav({prependTo:"#mobile_menu"});
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="https://utahforge.com/"><img src="images/utah_forge_logo.png" alt="Utah FORGE Logo"></a>
+            </div>
+            <div class="header-title">
+                <h2>Utah FORGE Data Distribution</h2>
+                <h3>Access to FORGE's seismic data</h3>
+            </div>
+            <div class="header-search">
+                <form method="get" action="https://www.google.com/search">
+                    <label>
+                        <input type="text" placeholder="Search..." name="search">
+                    </label>
+                    <input type="hidden" name="domains" value="https://constantine.seis.utah.edu">
+                    <input type="hidden" name="sitesearch" value="https://constantine.seis.utah.edu">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <nav id="mobile_menu"></nav>
+    <nav id="nav_menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="datasets.html">Datasets</a></li>
+            <li class="lastitem"><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <article>
+        <h1>
+            About
+        </h1>
+        <p>
+            This section of the website contains a miscellany of information, tricks, and tips we are acquiring as this
+            component of the project moves forward.
+        </p>
+        <h3>
+            What exactly is this website?
+        </h3>
+        <p>
+            This website barely qualifies as a frontend.  The heavy lifting happens
+            behind the scenes where we rely on the <a href="https://www.chpc.utah.edu/">CHPC's</a> Pando utility.
+            Effectively, this is a large, publicly accessible S3 bucket.  Alternatively, you can think of Pando as
+            a Linux file system from which you pull the file defined by a URL.  For example, you could pull the
+            following
+        </p>
+        <pre>
+            https://pando-rgw01.chpc.utah.edu/slb_2019_MW78-32_001/20190419234038.387.segy
+        </pre>
+        <p>
+            The URL is broken out as follows:
+        </p>
+        <ul>
+            <li>The pando service is <em>https://pando-rgw01.chpc.utah.edu</em>.</li>
+            <li>The Schlumberger 2019 directory is <em>slb_2019_MW78-32_001</em>.</li>
+            <li>The file in the directory is <em>20190419234038.387.segy</em>.</li>
+        </ul>
+        <p>
+            Therefore, if you are feeling ambitious you will find it pretty straightforward to scrape the archive
+            provided you have the disk space on your end to catch the results.
+        </p>
+        <h3>
+            Why aren't there hyperlinks to the data?
+        </h3>
+        <p>
+            A key difference between this site and the weather data distribution service
+            <a href="http://hrrr.chpc.utah.edu/">HRRR</a> is that we tend to have an overwhelming number of files.
+            Since the process of clicking a link for each file is as error as it is tedious we provide fetch scripts
+            which use <a href="https://www.gnu.org/software/wget/">wget</a>.  The scripts are just thousands of
+            lines of things like
+        </p>
+        <pre>
+            wget -q https://pando-rgw01.chpc.utah.edu/slb_2019_MW78-32_001/20190419234038.387.segy
+            wget -q https://pando-rgw01.chpc.utah.edu/slb_2019_MW78-32_001/20190419234734.387.segy
+            wget -q https://pando-rgw01.chpc.utah.edu/slb_2019_MW78-32_001/20190419235550.387.segy
+            .
+            .
+            .
+        </pre>
+        <p>
+            If command lines aren't your thing or you don't have a system with wget then it is straightforward to lift
+            the URLs and refactor the scripts to utilize any language or retrieval mechanism that you like.
+        </p>
+        <h3>
+            Can I speed-up wget?
+        </h3>
+        <p>
+            Understandably, you may be tempted to execute the script in parallel.  This is okay provided the number
+            of requesting threads is smaller and on the order of 10.  If too many requests are simultaneously issued
+            the hardware on our end has timed out.  These timeouts result in a flurry of behind-the-scenes emails and
+            can cost you a few days of download time while we sort things out.
+        </p>
+     </article>
+     <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <!-- <a href="https://www.utah.edu/"><img src="images/BlockU_redweb.png" alt="Official Block U Logo"></a> -->
+                <a href="https://egi.utah.edu/"><img src="images/EGILogo.png" alt="EGI Logo"></a>
+            </div>
+            <div class="footer-contact-address">
+                Energy &amp Geoscience Institute<br>
+                423 Wakara Way, Suite 300<br>
+                Salt Lake City, UT 84108<br>
+                <a href="tel:801-581-5126" >
+                    <i class="fas fa-phone"></i> 801-581-5126
+                </a>
+             </div>
+            <div class="footer-nav">
+                <a href="https://www.energy.gov/eere/forge/forge-home">DOE FORGE Home</a><br>
+                <a href="https://utahforge.com/">Utah FORGE</a><br>
+                <a href="https://quake.utah.edu/forge-map">UUSS</a>
+            </div>
+            <div class="footer-social-networks">
+                <a href="mailto:gskowron@egi.utah.edu">
+                    <i class="fa fa-envelope fa-fw" aria-hidden="true"></i> Webmaster Email
+                </a><br>
+                <a title="facebook" href="https://www.facebook.com/forgeutah/">
+                    <i class="fa fa-facebook fa-fw" aria-hidden="true"></i> Facebook
+                </a><br>
+                <a title="twitter" href="https://twitter.com/utahforge">
+                    <i class="fa fa-twitter fa-fw" aria-hidden="true"></i> Twitter
+                </a>
+            </div>
+            <div class="footer-fine-print">
+                <a>Fine Print:</a>
+            </div>
+            <div class="footer-privacy">
+                <a href="https://www.utah.edu/privacy/">Privacy</a>
+            </div>
+            <div class="footer-disclaimer">
+                <a href="https://www.utah.edu/disclaimer/">Disclaimer</a>
+            </div>
+            <div class="footer-accessibility">
+                <a href="https://www.utah.edu/nondiscrimination/">Accessibility &amp Nondiscrimination</a>
+            </div>
+        </div>
+    </footer> <!-- .footer -->
+</body>
+</html>

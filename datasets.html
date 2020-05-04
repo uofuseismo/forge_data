@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FORGE Data Distribution | geothermal seismic monitoring data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="FAQ's about the FORGE data portal.">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/ee5e778e09.js" crossorigin="anonymous"></script>
+    <script src="js/slicknav.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#nav_menu').slicknav({prependTo:"#mobile_menu"});
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="https://utahforge.com/"><img src="images/utah_forge_logo.png" alt="Utah FORGE Logo"></a>
+            </div>
+            <div class="header-title">
+                <h2>Utah FORGE Data Distribution</h2>
+                <h3>Access to FORGE's seismic data</h3>
+            </div>
+            <div class="header-search">
+                <form method="get" action="https://www.google.com/search">
+                    <label>
+                        <input type="text" placeholder="Search..." name="search">
+                    </label>
+                    <input type="hidden" name="domains" value="https://constantine.seis.utah.edu">
+                    <input type="hidden" name="sitesearch" value="https://constantine.seis.utah.edu">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <nav id="mobile_menu"></nav>
+    <nav id="nav_menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="datasets.html">Datasets</a></li>
+            <li class="lastitem"><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <div class="dataset-container">
+        <div class="dataset-nav">
+            <aside id="dataset-aside">
+                <nav id="dataset_nav_menu">
+                    <ul>
+                        <li><a href="#nodal">Nodal</a></li>
+                        <li><a href="#downhole_geophone">Downhole Geophone</a></li>
+                        <li class="#das"><a href="#das">DAS</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+        <div class="dataset-article">
+            <article id="dataset-article">
+                <h1>
+                    Datasets
+                </h1>
+                <h3 id="nodal">
+                    Nodal
+                </h3>
+                <p>
+                    This section contains references to multiple surface-acquisition Fairfield Nodal datasets.
+                </p>
+                <h3 id="downhole_geophone">
+                    Downhole Geophone
+                </h3>
+                <p>
+                    This section contains references to downhole geophone data collected by Schlumberger.
+                </p>
+                <h3 id="das">
+                    Silixa
+                </h3>
+            </article>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <!-- <a href="https://www.utah.edu/"><img src="images/BlockU_redweb.png" alt="Official Block U Logo"></a> -->
+                <a href="https://egi.utah.edu/"><img src="images/EGILogo.png" alt="EGI Logo"></a>
+            </div>
+            <div class="footer-contact-address">
+                Energy &amp Geoscience Institute<br>
+                423 Wakara Way, Suite 300<br>
+                Salt Lake City, UT 84108<br>
+                <a href="tel:801-581-5126" >
+                    <i class="fas fa-phone"></i> 801-581-5126
+                </a>
+            </div>
+            <div class="footer-nav">
+                <a href="https://www.energy.gov/eere/forge/forge-home">DOE FORGE Home</a><br>
+                <a href="https://utahforge.com/">Utah FORGE</a><br>
+                <a href="https://quake.utah.edu/forge-map">UUSS</a>
+            </div>
+            <div class="footer-social-networks">
+                <a href="mailto:gskowron@egi.utah.edu">
+                    <i class="fa fa-envelope fa-fw" aria-hidden="true"></i> Webmaster Email
+                </a><br>
+                <a title="facebook" href="https://www.facebook.com/forgeutah/">
+                    <i class="fa fa-facebook fa-fw" aria-hidden="true"></i> Facebook
+                </a><br>
+                <a title="twitter" href="https://twitter.com/utahforge">
+                    <i class="fa fa-twitter fa-fw" aria-hidden="true"></i> Twitter
+                </a>
+            </div>
+            <div class="footer-fine-print">
+                <a>Fine Print:</a>
+            </div>
+            <div class="footer-privacy">
+                <a href="https://www.utah.edu/privacy/">Privacy</a>
+            </div>
+            <div class="footer-disclaimer">
+                <a href="https://www.utah.edu/disclaimer/">Disclaimer</a>
+            </div>
+            <div class="footer-accessibility">
+                <a href="https://www.utah.edu/nondiscrimination/">Accessibility &amp Nondiscrimination</a>
+            </div>
+        </div>
+    </footer> <!-- .footer -->
+</body>
+</html>
